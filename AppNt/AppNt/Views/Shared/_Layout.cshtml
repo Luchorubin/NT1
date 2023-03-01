@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AppNt</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href=~/css/style.css />
+    <link rel="stylesheet" href="~/css/botonesPrincipales.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+    <link rel="stylesheet" href="~/css/styleNavcss.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <nav style="background-color:burlywood" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <img width="200px" height="100px" src="https://campus.ort.edu.ar/video/imagen/874564" />
+                
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-row-reverse-1">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @if (User.IsInRole("VOTANTE"))
+                                {
+
+                                    <a class="nav-link " asp-area="" asp-controller="Confederation" asp-action="IndexForUsers">Confederaciones</a>
+
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Confederation" asp-action="Index">Confederaciones</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="League" asp-action="Index">Ligas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Team" asp-action="Index">Equipos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Votes" asp-action="Index">Ranking</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="User" asp-action="Index">Usuarios</a>
+                                    </li>
+
+                                }
+
+                                <li class="nav-item ">
+                                    <form asp-controller="User" asp-action="Salir" method="post">
+                                        <a><button class="button-66" role="button" type="submit">Salir</button></a>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item float-right">
+                                    <a asp-area="" asp-controller="User" asp-action="IniciarSesion"><button class="button-66" role="button" style="margin-right: 5px"> Iniciar sesion </button></a>
+                                </li>
+                                <li class="nav-item float-right">
+                                    <a asp-area="" asp-controller="User" asp-action="Create"><button class="button-66" role="button">Registrate</button></a>
+                                </li>
+
+
+                            }
+
+                        </ul>
+                    </div>
+               
+                
+
+
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+ 
+        </main>
+    </div>
+
+   
+
+    <!-- Footer -->
+    <footer class="page-footer footer  footerFlex">
+        <div id="footerNew">
+            <p> © 2023 Copyright: Ranking de hinchadas de futbol</p>
+            </div>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
+

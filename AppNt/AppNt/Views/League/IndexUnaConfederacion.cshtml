@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AppNt.Models.League>
+    <head>
+        <link rel="stylesheet" href="~/css/botones.css">
+    </head>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th cope="col">
+                Liga
+            </th>
+            <th cope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+  
+                <a asp-controller="Team" asp-action="indexTeamsLeague" asp-route-id="@item.Id"><button class="button-81" role="button">Ver Equipos</button></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

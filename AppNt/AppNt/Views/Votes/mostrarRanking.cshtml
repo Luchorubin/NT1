@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AppNt.Models.TeamVote>
+    <head>
+        <link rel="stylesheet" href="~/css/botones.css">
+    </head>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Posicion</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.QtyVotes)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.QtyVotes)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

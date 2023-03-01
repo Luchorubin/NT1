@@ -1,0 +1,10 @@
+﻿
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    font-family: 'Abril Fatface', cursive;
+}
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        border-bottom: 2px solid black;
+        color: #0d47a1;
+    }

@@ -1,0 +1,33 @@
+﻿@model AppNt.Models.League
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>League</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Confederation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Confederation.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index"><button class="button-28" role="button">Back to List</button></a>
+    <a asp-action="Edit" asp-route-id="@Model.Id"> <button class="button-28" role="button">Edit</button></a>
+
+
+</div>

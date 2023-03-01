@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AppNt.Models.League>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/botones.css">
+</head>
+
+<h1>Leagues</h1>
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th cope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th cope="col">
+                @Html.DisplayNameFor(model => model.Confederation)
+            </th>
+            <th>More information</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Confederation.Name)
+                </td>
+                <td>
+
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button class="button-81" role="button">Edit</button></a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><button class="button-81" role="button">Details</button></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button class="button-81" role="button">Delete</button></a>
+
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create"><button class="button-28" role="button">Create new</button></a>

@@ -1,0 +1,39 @@
+﻿@model AppNt.Models.User
+
+
+<head>
+    <link rel="stylesheet" href="~/css/botonesPrincipales.css">
+</head>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="IniciarSesion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="text-danger">@ViewBag.ErrorEnLogin</div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input type="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Contraseña</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <a><button class="button-28" role="button" type="submit">Iniciar sesion</button></a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

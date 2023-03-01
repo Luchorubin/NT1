@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AppNt.Models.Team>
+<head>
+    <link rel="stylesheet" href="~/css/botones.css">
+    <link rel="stylesheet" href="~/css/botonesPrincipales.css">
+</head>
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th cope="col">
+                Equipo
+            </th>
+            <th cope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+
+                    <a asp-action="Details" asp-route-id="@item.Id"><button class="button-81" role="button">Details</button></a>
+
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+
+</table>
+
+<a asp-controller="Votes" asp-action="Create"><button class="button-28 btn-sm" role="button">Votar</button></a>
+<a asp-controller="Votes" asp-action="mostrarRanking"><button class="button-28 btn-sm" role="button">Ver ranking</button></a>
